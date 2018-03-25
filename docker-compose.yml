@@ -1,6 +1,6 @@
 version: '3'
 services:
-  haskell:
+  python:
     container_name: python
     image: python:3.6.4
     stdin_open: true
