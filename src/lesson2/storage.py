@@ -1,3 +1,4 @@
+import os
 import argparse
 import json
 
@@ -7,6 +8,10 @@ parser.add_argument('--key', type=str)
 parser.add_argument('--value', type=str)
 args = parser.parse_args()
 
+if not os.path.isfile('./storage.json'):
+    createFile = open('./storage.json', 'w')
+    createFile.write('{}')
+    createFile.close()
 
 f = open('./storage.json', 'r+')
 
@@ -35,3 +40,5 @@ else:
             print(', '.join(value))
     else:
         print(args.key, '- key does not exists')
+
+f.close()
